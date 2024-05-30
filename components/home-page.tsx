@@ -41,11 +41,13 @@ export function HomePage() {
           duration: 0.5,
           ease: [0.4, 0.0, 0.2, 1],
         }}
-        className="text-2xl px-4 md:text-4xl lg:text-5xl font-bold text-neutral-700 dark:text-white max-w-4xl leading-relaxed lg:leading-snug text-center mx-auto "
+        className="text-white text-center"
       >
-        Hai Nguyen
-        <div className="text-xl md:text-3xl lg:text-4xl mx-auto font-normal text-neutral-600 dark:text-neutral-400">
-          An Enthusiast Web Developer
+        <h1 className="text-5xl md:text-7xl bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-600 text-center font-sans font-bold pb-2">
+          Hai Nguyen
+        </h1>
+        <div className="text-2xl md:text-4xl mx-auto font-normal text-neutral-600 dark:text-neutral-400">
+          An Enthusiastic Web Developer
         </div>
         <div className="py-20 grid grid-cols-2 md:grid-cols-4 gap-6">
           {navLabel.map((item, index) => (
