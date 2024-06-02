@@ -4,20 +4,65 @@ import React from "react"
 import Link from "next/link"
 
 import { AnimatePresence, motion } from "framer-motion"
+import { User, BriefcaseBusiness, Computer, PhoneCall } from "lucide-react"
 import slug from "slug"
 
 import { LampContainer } from "./ui/lamp"
 import { CanvasRevealEffect } from "@/components/ui/canvas-reveal-effect"
 
-export function HomePage({
-  navLabel,
-  pageTitle,
-}: {
-  navLabel: any[]
-  pageTitle: any
-}) {
-  console.log(navLabel)
-  console.log(pageTitle)
+export const pageTitle = {
+  mainTitle: "Hai Nguyen",
+  subTitle: "An Enthusiastic Web Developer",
+}
+
+export const navLabel = [
+  {
+    title: "About",
+    icon: (
+      <User
+        strokeWidth={2}
+        width={48}
+        height={48}
+        className="text-neutral-300"
+      />
+    ),
+  },
+  {
+    title: "Experience",
+    icon: (
+      <BriefcaseBusiness
+        strokeWidth={2}
+        width={48}
+        height={48}
+        className="text-neutral-300"
+      />
+    ),
+  },
+  {
+    title: "Works",
+    icon: (
+      <Computer
+        strokeWidth={2}
+        width={48}
+        height={48}
+        className="text-neutral-300"
+      />
+    ),
+  },
+  {
+    title: "Contact",
+    icon: (
+      <PhoneCall
+        strokeWidth={2}
+        width={48}
+        height={48}
+        className="text-neutral-300"
+      />
+    ),
+  },
+]
+
+export function HomePage() {
   return (
     <LampContainer>
       <motion.div
