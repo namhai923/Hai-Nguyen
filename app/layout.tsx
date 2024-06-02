@@ -39,7 +39,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <HeroHighlight containerClassName="h-screen">
+          <HeroHighlight containerClassName="min-h-screen h-full">
             {children}
           </HeroHighlight>
         </ThemeProvider>

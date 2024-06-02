@@ -4,28 +4,20 @@ import React from "react"
 import Link from "next/link"
 
 import { AnimatePresence, motion } from "framer-motion"
-import { User, BriefcaseBusiness, Computer, PhoneCall } from "lucide-react"
 import slug from "slug"
 
 import { LampContainer } from "./ui/lamp"
 import { CanvasRevealEffect } from "@/components/ui/canvas-reveal-effect"
 
-export function HomePage() {
-  let navLabel = [
-    { title: "About", icon: <User strokeWidth={2} width={48} height={48} /> },
-    {
-      title: "Experience",
-      icon: <BriefcaseBusiness strokeWidth={2} width={48} height={48} />,
-    },
-    {
-      title: "Works",
-      icon: <Computer strokeWidth={2} width={48} height={48} />,
-    },
-    {
-      title: "Contact",
-      icon: <PhoneCall strokeWidth={2} width={48} height={48} />,
-    },
-  ]
+export function HomePage({
+  navLabel,
+  pageTitle,
+}: {
+  navLabel: any[]
+  pageTitle: any
+}) {
+  console.log(navLabel)
+  console.log(pageTitle)
   return (
     <LampContainer>
       <motion.div
@@ -44,13 +36,13 @@ export function HomePage() {
         className="text-white text-center"
       >
         <h1 className="text-5xl md:text-7xl bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-600 text-center font-sans font-bold pb-2">
-          Hai Nguyen
+          {pageTitle.mainTitle}
         </h1>
         <div className="text-2xl md:text-4xl mx-auto font-normal text-neutral-600 dark:text-neutral-400">
-          An Enthusiastic Web Developer
+          {pageTitle.subTitle}
         </div>
         <div className="py-20 grid grid-cols-2 md:grid-cols-4 gap-6">
-          {navLabel.map((item, index) => (
+          {navLabel.map((item: any, index: number) => (
             <Link key={index} href={slug(item.title)}>
               <Card title={item.title} icon={item.icon}>
                 <CanvasRevealEffect
