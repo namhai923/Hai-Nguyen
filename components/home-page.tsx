@@ -63,21 +63,26 @@ export const navLabel = [
 ]
 
 export function HomePage() {
+  const variants = {
+    initial: {
+      opacity: 0,
+      y: 20,
+    },
+    animate: {
+      opacity: 1,
+      y: [20, -5, 0],
+      transition: {
+        duration: 0.5,
+        ease: "easeIn",
+      },
+    },
+  }
   return (
     <LampContainer>
       <motion.div
-        initial={{
-          opacity: 0,
-          y: 20,
-        }}
-        animate={{
-          opacity: 1,
-          y: [20, -5, 0],
-        }}
-        transition={{
-          duration: 0.5,
-          ease: [0.4, 0.0, 0.2, 1],
-        }}
+        variants={variants}
+        initial="initial"
+        animate="animate"
         className="text-white text-center"
       >
         <h1 className="text-5xl md:text-7xl bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-600 text-center font-sans font-bold pb-2">

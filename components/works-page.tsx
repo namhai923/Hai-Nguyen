@@ -1,5 +1,3 @@
-// "use client"
-
 import React from "react"
 import Image from "next/image"
 
@@ -122,7 +120,7 @@ export function WorksPage() {
   const words =
     "Some of my favorite projects I have worked on over the last few years"
   return (
-    <div className="p-4 md:p-0 max-w-4xl">
+    <div className="flex min-h-screen flex-col items-center justify-center">
       <TextGenerateEffect
         words={words}
         className="text-2xl mx-auto font-normal text-neutral-600 dark:text-neutral-400"

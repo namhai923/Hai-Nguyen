@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils"
 
 import { ThemeProvider } from "@/components/theme-provider"
 import { HeroHighlight } from "@/components/ui/hero-highlight"
+import PageTransitionEffect from "@/components/page-transition-effect"
 
 export const metadata: Metadata = {
   title: {
@@ -28,10 +29,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head />
       <body
-        className={cn(
-          "min-h-screen bg-background font-sans antialiased",
-          fontSans.variable
-        )}
+        className={cn("bg-background font-sans antialiased", fontSans.variable)}
       >
         <ThemeProvider
           attribute="class"
@@ -40,7 +38,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <HeroHighlight containerClassName="min-h-screen h-full">
-            {children}
+            <PageTransitionEffect>{children}</PageTransitionEffect>
           </HeroHighlight>
         </ThemeProvider>
       </body>
