@@ -72,8 +72,8 @@ export function HomePage() {
       opacity: 1,
       y: [20, -5, 0],
       transition: {
-        duration: 0.5,
-        ease: "easeIn",
+        duration: 0.75,
+        ease: "easeInOut",
       },
     },
   }

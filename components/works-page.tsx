@@ -1,14 +1,17 @@
 import React from "react"
 import Image from "next/image"
+import Link from "next/link"
 
 import {
   IconPhoto,
   IconBackground,
   IconTopologyStar3,
 } from "@tabler/icons-react"
+import slug from "slug"
 
 import { BentoGrid, BentoGridItem } from "./ui/bento-grid"
 import { TextGenerateEffect } from "./ui/text-generate-effect"
+import { SparklesCore } from "./ui/sparkles"
 
 import bbc from "@/public/bison-bank-of-canada.png"
 import portfolioTemplate from "@/public/portfolio-template.png"
@@ -121,21 +124,43 @@ export function WorksPage() {
     "Some of my favorite projects I have worked on over the last few years"
   return (
     <div className="flex min-h-screen flex-col items-center justify-center">
-      <TextGenerateEffect
-        words={words}
-        className="text-2xl mx-auto font-normal text-neutral-600 dark:text-neutral-400"
-      />
+      <div className="h-[7rem] w-full bg-transprarent flex flex-col items-center justify-center overflow-hidden rounded-md">
+        <TextGenerateEffect
+          words={words}
+          className="text-center mx-auto font-normal text-neutral-600 dark:text-neutral-400"
+        />
+        <div className="w-[40rem] h-20 relative">
+          {/* Gradients */}
+          <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-amber-500 to-transparent h-[2px] w-3/4 blur-sm" />
+          <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-amber-500 to-transparent h-px w-3/4" />
+          <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-yellow-500 to-transparent h-[5px] w-1/4 blur-sm" />
+          <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-yellow-500 to-transparent h-px w-1/4" />
 
-      <BentoGrid className="max-w-4xl mx-auto md:auto-rows-[20rem]">
-        {works.map((works: any, index: number) => (
-          <BentoGridItem
-            key={index}
-            title={works.title}
-            description={works.description}
-            header={works.header}
-            icon={works.icon}
-            className={works.className}
+          {/* Core component */}
+          <SparklesCore
+            background="transparent"
+            minSize={0.4}
+            maxSize={1}
+            particleDensity={1200}
+            className="w-full h-full"
+            particleColor="#f0b529"
           />
+
+          {/* Radial Gradient to prevent sharp edges */}
+          <div className="absolute inset-0 w-full h-full bg-black/90 [mask-image:radial-gradient(350px_200px_at_top,transparent_20%,white)]"></div>
+        </div>
+      </div>
+
+      <BentoGrid className="max-w-4xl mx-4 mb-4 md:mx-auto md:auto-rows-[20rem]">
+        {works.map((work: any, index: number) => (
+          <Link key={index} href={slug(work.title)} className={work.className}>
+            <BentoGridItem
+              title={work.title}
+              description={work.description}
+              header={work.header}
+              icon={work.icon}
+            />
+          </Link>
         ))}
       </BentoGrid>
     </div>
