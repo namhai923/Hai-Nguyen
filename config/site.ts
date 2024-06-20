@@ -1,6 +1,6 @@
 export const siteConfig = {
-  name: "Blog Template",
-  description: "A blog website template",
+  name: "Hai Nguyen",
+  description: "Hai Nguyen's Portfolio",
   links: {
     shadcn: "https://ui.shadcn.com/",
     sanity: "https://www.sanity.io/",
